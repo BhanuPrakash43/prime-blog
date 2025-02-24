@@ -97,21 +97,22 @@ function Navbar() {
                                         </button>
 
                                         <div
-                                            className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-500 ${
+                                            className={`fixed inset-0 bg-black/50 z-40 transition-all duration-500 ${
                                                 showMenu
-                                                    ? "opacity-100 visible"
-                                                    : "opacity-0 invisible"
+                                                    ? "opacity-100 pointer-events-auto"
+                                                    : "opacity-0 pointer-events-none"
                                             }`}
                                             onClick={() => setShowMenu(false)}
                                         >
                                             <div
-                                                className={`fixed top-0 
-                                                    ${showMenu ? "translate-x-0" : "md:-translate-x-0 md:translate-x-full -translate-x-full"}
-                                                        md:right-0 left-0 md:left-auto
-                                                        md:w-[80%] w-[75%] max-w-sm h-screen
-                                                      bg-gray-900/90 backdrop-blur-lg p-5
-                                                        z-50 shadow-lg transition-transform duration-500 ease-in-out
-                                                        overflow-y-auto`}
+                                                className={`fixed top-0 ${
+                                                    showMenu
+                                                        ? "translate-x-0"
+                                                        : "md:-translate-x-0 md:translate-x-full -translate-x-full"
+                                                }
+                                                    md:right-0 left-0 md:left-auto md:w-[80%] w-[75%] max-w-sm 
+                                                    h-screen bg-gray-900 p-5 z-50 shadow-lg transition-all 
+                                                    duration-500 ease-in-out`}
                                                 onClick={(e) =>
                                                     e.stopPropagation()
                                                 }
