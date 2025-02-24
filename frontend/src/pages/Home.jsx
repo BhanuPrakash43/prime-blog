@@ -9,7 +9,11 @@ function Home() {
         isLoading,
         error,
         data: blogs,
-    } = useAxiosGet({ endpoint: `${BASE_URL}/blog`, sendToken: false, dataKey: "blogs" });
+    } = useAxiosGet({
+        endpoint: `${BASE_URL}/blog`,
+        sendToken: false,
+        dataKey: "blogs",
+    });
 
     if (isLoading) {
         return (
@@ -39,8 +43,8 @@ function Home() {
     );
 
     // Separate the blogs for the slider and recent posts
-    const sliderBlogs = sortedPosts.slice(0, 3); // Select the top 3 blogs for the slider
-    const recentBlogs = sortedPosts.slice(3);
+    const sliderBlogs = sortedPosts.slice(0, 4); // Select the top 4 blogs for the slider
+    const recentBlogs = sortedPosts.slice(4);
 
     return (
         <>
@@ -50,12 +54,12 @@ function Home() {
                         <BlogSlider blogs={sliderBlogs} />
                     </div>
 
-                    <h2 className="text-3xl font-bold my-6 text-gray-800">
+                    <h2 className="text-2xl font-bold my-6 text-gray-800">
                         Recent Blogs
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {recentBlogs.length === 0 ? (
-                            <p className="text-center text-gray-500 mt-20">
+                            <p className=" w-full text-gray-500">
                                 No blogs found
                             </p>
                         ) : (
